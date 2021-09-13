@@ -29,6 +29,7 @@ def sum_of_list(l):
 
 def average_of_list(l):
     """Return het gemiddelde van alle elementen uit een lijst"""
+    
     return 0
 
 
