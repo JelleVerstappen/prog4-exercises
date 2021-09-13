@@ -1,16 +1,23 @@
 def raise_exception():
     """Raise exceptie RuntimeError"""
+    raise RuntimeError
     pass
 
 
 def raise_exception_on_negative(x):
     """Raise exceptie RuntimeError als negatieve parameter x"""
+    if x < 0:
+        raise RuntimeError
     pass
 
 
 def raise_exception_with_message():
     """Raise a RuntimeError exception met boodschap 'rare boel'"""
-    pass
+    raise RuntimeError
+    try:
+        pass
+    except RuntimeError:
+        print("rare boel")
 
 
 def handle_exception(x, y):

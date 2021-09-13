@@ -1,7 +1,9 @@
 def write_rick_and_morty(filename):
     """Schrijf de tekst "Rick and Morty" naar het tekstbestand met naam filename"""
-    return None
-
+    file = open(filename, "wt")
+    file.write("Rick and Morty")
+    file.close()
+    
 
 def write_numbers(filename):
     """Schrijf de getallen van 0 tot en met 99 in het bestand met naam filename.
@@ -15,8 +17,11 @@ def write_numbers(filename):
     ...
     99
     """
-    return None
-
+    file = open(filename, "wt")
+    for i in range(0, 100):
+        file.write(f"{i}\n")
+    file.close()
+    
 
 def write_numbers_and_squares(filename):
     """Schrijf de getallen gevolgd door de kwadraten naar het bestand filename.
@@ -31,8 +36,10 @@ def write_numbers_and_squares(filename):
     4,16
     ...
     """
-    return None
-
+    file = open(filename, "wt")
+    for i in range (0,100):
+        file.write(f"{i},{i**2}\n")
+    file.close()
 
 def sum_numbers_from_file(filename):
     """Geef de som terug van alle getallen in bestand met naam filename
@@ -48,7 +55,16 @@ def sum_numbers_from_file(filename):
     >> v = read_numbers('getallen.txt')
     >> print(v) # toont 128
     """
-    return None
+    sum = 0
+    file = open(filename, "rt")
+    lines = file.readlines()
+    for i in lines:
+        try:
+            sum = sum + int(i)
+        except:
+            continue
+    return sum
+
 
 
 def sum_two_columns_of_numbers_from_file(filename):
@@ -68,12 +84,29 @@ def sum_two_columns_of_numbers_from_file(filename):
     >> v = sum_two_columns_of_numbers_from_file('getallen.txt')
     >> print(v) # toont (27, 104)
     """
-    return None
+    sum1 = 0
+    sum2 = 0
+    file = open(filename, "rt")
+    lines = file.readlines()
+    for i in lines:
+        try:
+            b = i.split(",")
+            sum1 = sum1 + int(b[0])
+            sum2 = sum2 + int(b[1])
+        except:
+            continue
+    return(sum1, sum2)
 
 
 def count_words_from_file(filename):
     """Geef het aantal woorden terug in bestand met naam filename"""
-    return None
+    words = 0
+    file = open(filename, "rt")
+    lines = file.readlines()
+    for line in lines:
+        b = line.split()
+        words = words + len(b)
+    return words
 
 
 def count_word_frequency_from_file(filename):
@@ -96,4 +129,17 @@ def count_word_frequency_from_file(filename):
     - verwijder alle leestekens, zeker ",.?"
     - verwijder de newlines '\\n' mbv de method strip()
     """
+    freq = {}
+    file = open(filename, "rt")
+    lines = file.readlines()
+    for line in lines:
+        NoComma = line.strip(",")
+        NoQM = NoComma.strip("?")
+        NoPoint = NoQM.strip(".")
+        NoNewLine = NoPoint.strip("\\n")
+        Lower = NoNewLine.lower()
+        
+ 
+
+
     return None

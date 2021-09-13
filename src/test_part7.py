@@ -1,7 +1,7 @@
 from .part7 import *
-
-
 def test_write_rick_and_morty(tmp_path):
+
+
     d = tmp_path / "sub"
     d.mkdir()
     p = d / "ram.txt"
