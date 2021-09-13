@@ -55,3 +55,28 @@ def test_bmi_height_zero():
 def test_bmi_height_zero_exception_with_message():
     with pytest.raises(HeightError, match=r"lengte is 0"):
         calculate_bmi(77, 0)
+
+
+def test_maximum_heartrate_65():
+    result = maximum_heartrate(75)
+    assert result == 145
+
+
+def test_maximum_heartrate_44():
+    result = maximum_heartrate(44)
+    assert result == 176
+
+
+def test_maximum_heartrate_17():
+    result = maximum_heartrate(17)
+    assert result == 203
+
+
+def test_maximum_heartrate_age_low():
+    with pytest.raises(AgeNegativeError):
+        maximum_heartrate(-1)
+
+
+def test_maximum_heartrate_age_high():
+    with pytest.raises(AgeTooHighError, match=r"oudste mens ooit werd 122"):
+        maximum_heartrate(141)

@@ -46,3 +46,14 @@ def calculate_bmi(weight, height):
     Raise HeightError with message "lengte is 0" if height is zero
     """
     pass
+
+
+def maximum_heartrate(age):
+    """Return the maximum heartrate
+
+    The maximum heartrate is given as 220 - age.
+
+    Raise AgeNegativeError if age < 0
+    Raise AgeTooHighError if age > 140 with message "oudste mens ooit werd 122"
+    """
+    pass
