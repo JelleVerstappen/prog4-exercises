@@ -13,11 +13,7 @@ def raise_exception_on_negative(x):
 
 def raise_exception_with_message():
     """Raise a RuntimeError exception met boodschap 'rare boel'"""
-    raise RuntimeError
-    try:
-        pass
-    except RuntimeError:
-        print("rare boel")
+    raise RuntimeError("rare boel")
 
 
 def handle_exception(x, y):
@@ -26,6 +22,14 @@ def handle_exception(x, y):
     Als y 0 is krijg je een ZeroDivisionError exceptie, verwerk deze
     met try/except en geef dan None terug.
     """
+    try:
+       div = x/y
+       return div
+
+    if y == 0:
+        raise RuntimeError
+    except RuntimeError:
+        print(None)
     pass
 
 
