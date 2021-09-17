@@ -129,16 +129,24 @@ def count_word_frequency_from_file(filename):
     - verwijder alle leestekens, zeker ",.?"
     - verwijder de newlines '\\n' mbv de method strip()
     """
-    freq = {}
-    file = open(filename, "rt")
-    lines = file.readlines()
-    for line in lines:
-        NoComma = line.strip(",")
-        NoQM = NoComma.strip("?")
-        NoPoint = NoQM.strip(".")
-        NoNewLine = NoPoint.strip("\\n")
-        Lower = NoNewLine.lower()
-        
+    file = open(filename)
+    data = file.read()
+    words = data.split()
+
+    for i in range(len(words)):
+        words[i] = words[i].lower()
+
+    file.close()
+
+    unwanted_chars = ".,-_? "
+    wordfreq = {}
+    for raw_word in words:
+        word = raw_word.strip(unwanted_chars)
+        if word not in wordfreq:
+            wordfreq[word] = 0 
+        wordfreq[word] += 1
+
+    return wordfreq
  
 
 

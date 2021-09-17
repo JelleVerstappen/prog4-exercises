@@ -23,35 +23,51 @@ def handle_exception(x, y):
     met try/except en geef dan None terug.
     """
     try:
-       div = x/y
-       return div
-
-    if y == 0:
-        raise RuntimeError
+        if y == 0:
+            raise RuntimeError
+        div = x/y
+        return div
     except RuntimeError:
-        print(None)
+        return None
+
+
+class TooLazyError(RuntimeError):
     pass
-
-
 def raise_custom_exception():
     """Raise a TooLazyError exception"""
+    raise TooLazyError  
+
+
+class TooTiredError(RuntimeError):
     pass
-
-
 def raise_custom_exception_with_message():
     """Raise a TooTiredError exception with message 'te moe'"""
+    raise TooTiredError
+
+
+class HeightError(RuntimeError):
     pass
-
-
+class WeightError(RuntimeError):
+    pass
 def calculate_bmi(weight, height):
     """Return the BMI
 
     Raise WeightError if weight <= 0
     Raise HeightError with message "lengte is 0" if height is zero
     """
+    if height == 0:
+        raise HeightError
+    if weight <= 0:
+        raise WeightError
+    bmi = weight / height ** 2
+    return bmi
+
+
+
+class AgeNegativeError(RuntimeError):
     pass
-
-
+class AgeTooHighError(RuntimeError):
+    pass
 def maximum_heartrate(age):
     """Return the maximum heartrate
 
@@ -60,4 +76,14 @@ def maximum_heartrate(age):
     Raise AgeNegativeError if age < 0
     Raise AgeTooHighError if age > 140 with message "oudste mens ooit werd 122"
     """
-    pass
+    
+    if age < 0:
+        raise AgeNegativeError
+    if age > 140:
+        raise AgeTooHighError
+
+    heartrate = 220 - age
+    return heartrate
+
+
+

@@ -19,36 +19,58 @@ def oppervlakte_kegel(r, h):
 def last_element(l):
     """Return het laatste element uit een lijst"""
     return l[-1]
-
-
+ 
+ 
 def sum_of_list(l):
     """Return de som van alle elementen uit een lijst"""
-    
-    return 11
-
-
+    length = len(l)
+    totalsum = 0
+    for i in range(0, length, 1):
+        totalsum = totalsum + l[0+i]
+    return totalsum
+ 
+ 
 def average_of_list(l):
     """Return het gemiddelde van alle elementen uit een lijst"""
-    
-    return 0
-
-
+    som = sum(l)
+    length = len(l)
+    average = som/length
+    return average
+ 
+ 
 def min_max_of_list(l):
     """Return het minimum en het maximum van de elementen uit een lijst"""
-    return 0
-
-
+    minimum = min(l)
+    maximum = max(l)
+    return minimum, maximum
+ 
+ 
 def squared_list(l):
     """Return een nieuwe lijst met de kwadraten van de elementen uit de gegeven lijst
-
+ 
     squared_list([2,3]) == [4, 9]
     """
-    return []
-
-
+    length = len(l)
+    squared = []
+    for i in range(0, length, 1):
+        squared.append(l[0+i]**2)
+    return squared
+ 
+ 
 def differences_list(l1, l2):
-    return []
-
-
+    lijst = []
+    length = len(l1)
+    length2 = len(l2)
+ 
+    if length != length2:
+        raise ValueError
+ 
+    for i in range(0, length, 1):
+        item = l1[0+i] - l2[0+i]
+        lijst.append(item)
+    return lijst
+ 
+ 
 def replace_takis_mr_issaris(text):
-    return ""
+    changedtext = text.replace("Takis", "Mr. Issaris")
+    return changedtext
