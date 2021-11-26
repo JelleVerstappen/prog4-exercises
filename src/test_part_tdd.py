@@ -9,3 +9,14 @@
 # kwadraat van 2 4 is.
 
 
+from src.part_tdd import palindroom
+
+
+def test_palindroom():
+    result = palindroom("lmao")
+    assert result == False
+
+def test_palindroom_2():
+    result = palindroom("lol")
+    assert result == True
+

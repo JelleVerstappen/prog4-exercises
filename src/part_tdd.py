@@ -8,6 +8,16 @@
 # > palindroom("lol")
 # True
 
+def palindroom(message):
+    reverse = message[::-1]
+    if message == reverse:
+        return True
+    else:
+        return False
+
+
+
+
 # Oefening 2
 # ==========
 # Schrijf een functie anagram, die controlleert of een twee gegeven woorden
