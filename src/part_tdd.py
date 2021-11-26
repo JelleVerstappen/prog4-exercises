@@ -26,6 +26,8 @@ def palindroom(message):
 # False
 # > anagram("tol", "lot")
 # True
+def anagram():
+    pass
 
 # Oefening 3
 # ==========

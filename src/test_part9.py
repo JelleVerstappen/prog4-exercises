@@ -7,11 +7,6 @@ def test_book_title():
     b = Book(title="GIP")
 
     assert b.content == "Title: GIP\n"
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d8639ef2322f32a8a874da5f70545ff5a6baf2e9
 def test_book_chapter():
     b = Book(title="GIP")
     b.add_chapter("Introductie")
@@ -105,8 +100,4 @@ def test_book_write():
         expected = """Title: GIP
 Dit is de inhoud
 """
-<<<<<<< HEAD
         handle.write.assert_called_with(expected)
-=======
-        handle.write.assert_called_with(expected)
->>>>>>> d8639ef2322f32a8a874da5f70545ff5a6baf2e9

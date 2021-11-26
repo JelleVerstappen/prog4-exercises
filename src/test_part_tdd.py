@@ -9,7 +9,8 @@
 # kwadraat van 2 4 is.
 
 
-from src.part_tdd import palindroom
+from src.part_tdd import palindroom, anagram
+import pytest
 
 
 def test_palindroom():
@@ -20,3 +21,17 @@ def test_palindroom_2():
     result = palindroom("lol")
     assert result == True
 
+def test_palindroom_3():
+    result = palindroom("Never gonna give you up")
+    assert result == False
+    
+def test_anagram():
+    result = anagram("Rick", "Astley")
+    assert result == False
+
+def test_anagram_2():
+    result = anagram("Your", "Mom")
+    assert result == False
+
+def test_anagram_3():
+     pass
