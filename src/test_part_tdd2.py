@@ -46,6 +46,6 @@ def test_zoek_anagram_geen(tmpdir):
 
 def test_zoek_anagram(tmpdir):
     p = tmpdir.join("hello.txt")
-    p.write("lol\nkoelkast\aalscholver\nmeetsysteem\nkakstoel\n")
+    p.write("lol\nkoelkast\naalscholver\nmeetsysteem\nkakstoel\n")
     result = zoek_anagram(p, "koelkast")
     assert result == ["kakstoel"]
