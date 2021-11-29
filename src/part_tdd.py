@@ -8,6 +8,9 @@
 # > palindroom("lol")
 # True
 
+from datetime import timedelta
+
+
 def palindroom(message):
     reverse = message[::-1]
     if message == reverse:
@@ -27,7 +30,7 @@ def palindroom(message):
 # > anagram("tol", "lot")
 # True
 def anagram(word1, word2):
-    if word1[::-1] == word2:
+    if sorted(word1) == sorted(word2) & len(word1) == len(word2):
         return True
     else:
         return False
@@ -47,4 +50,7 @@ def anagram(word1, word2):
 # Je kan data van elkaar aftrekken.
 
 def age(year, month, day):
-    
+    import datetime
+    sec = timedelta.total_seconds(difyear = datetime.date.today().year - datetime.date(year), difday = datetime.date.today().month - datetime.date(month), difday = datetime.date.today().day - datetime.date(day))
+    old = sec/(365*24*60*60)
+    return old
