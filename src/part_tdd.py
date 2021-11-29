@@ -30,7 +30,17 @@ def palindroom(message):
 # > anagram("tol", "lot")
 # True
 def anagram(word1, word2):
-    if sorted(word1) == sorted(word2) & len(word1) == len(word2):
+
+    replace1 = word1.replace(" ","")
+    replace2 = word2.replace(" ","")
+
+    low1 = replace1.lower()
+    low2 = replace2.lower()
+
+    sort1 = sorted(low1)
+    sort2 = sorted(low2)
+
+    if sort1 == sort2:
         return True
     else:
         return False
@@ -49,8 +59,9 @@ def anagram(word1, word2):
 # datetime.date.date(year=2021, month=1, day=1) stelt 1 januari voor
 # Je kan data van elkaar aftrekken.
 
-def age(year, month, day):
+def leeftijd(year, month, day):
     import datetime
-    sec = timedelta.total_seconds(difyear = datetime.date.today().year - datetime.date(year), difday = datetime.date.today().month - datetime.date(month), difday = datetime.date.today().day - datetime.date(day))
-    old = sec/(365*24*60*60)
-    return old
+    difference = datetime.date.today() - datetime.date(year, month, day)
+    sec = difference.total_seconds()
+    age = sec//(365*24*60*60)
+    return age

@@ -50,7 +50,7 @@ def test_anagram_new_york_times_false():
 
 
 def test_anagram_cos():
-    assert anagram("Church of Scientology", "rich-chosen goofy cult") is True
+    assert anagram("Church of Scientology", "richchosen goofy cult") is True
 
 
 def test_anagram_cos_false():

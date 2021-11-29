@@ -1,9 +1,26 @@
 # Implementeer onderstaande functies.
 
-
 def zoek_palindroom(filename):
-    pass
+    lijst = []
+    bestand = open(filename, "rt")
+    lines = bestand.readlines()
 
+    for line in lines:
+        stripped = line.strip()
+
+        if stripped[::-1] == stripped:
+           lijst.append(stripped)
+    return lijst
 
 def zoek_anagram(filename, woord):
-    pass
+    lijst = []
+    bestand = open(filename, "rt")
+    lines = bestand.readlines()
+
+    for line in lines:
+        stripped = line.strip()
+
+        if sorted(woord) == sorted(stripped):
+           lijst.append(stripped)
+    return lijst
+

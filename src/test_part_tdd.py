@@ -9,7 +9,7 @@
 # kwadraat van 2 4 is.
 
 
-from src.part_tdd import palindroom, anagram, age
+from src.part_tdd import palindroom, anagram, leeftijd
 
 
 def test_palindroom():
@@ -21,7 +21,7 @@ def test_palindroom_2():
     assert result == True
 
 def test_palindroom_3():
-    result = palindroom("F")
+    result = palindroom("False")
     assert result == False
     
 def test_anagram():
@@ -36,6 +36,6 @@ def test_anagram_3():
      result = anagram("lef", "fel")
      assert result == True
 
-def test_age():
-    result = age(2004, 11, 7)
+def test_leeftijd():
+    result = leeftijd(2004, 11, 7)
     assert result == 17
