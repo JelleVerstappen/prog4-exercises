@@ -26,8 +26,11 @@ def palindroom(message):
 # False
 # > anagram("tol", "lot")
 # True
-def anagram():
-    pass
+def anagram(word1, word2):
+    if word1[::-1] == word2:
+        return True
+    else:
+        return False
 
 # Oefening 3
 # ==========
@@ -42,3 +45,6 @@ def anagram():
 # datetime.date.now() geeft de huidige datum
 # datetime.date.date(year=2021, month=1, day=1) stelt 1 januari voor
 # Je kan data van elkaar aftrekken.
+
+def age(year, month, day):
+    

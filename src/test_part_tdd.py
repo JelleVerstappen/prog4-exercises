@@ -10,7 +10,6 @@
 
 
 from src.part_tdd import palindroom, anagram
-import pytest
 
 
 def test_palindroom():
@@ -34,4 +33,6 @@ def test_anagram_2():
     assert result == False
 
 def test_anagram_3():
-     pass
+     result = anagram("lef", "fel")
+     assert result == True
+
