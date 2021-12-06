@@ -22,5 +22,6 @@ def zoek_anagram(filename, woord):
 
         if sorted(woord) == sorted(stripped):
            lijst.append(stripped)
+           lijst.remove(woord)
     return lijst
 
