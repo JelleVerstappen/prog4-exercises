@@ -4,15 +4,21 @@
 #
 # Dit bestand heeft naam "COVID19BE_CASES_AGESEX.csv".
 
-
-
+import csv
+import 
 def determine_total_cases(age_category, gender):
     """Geeft het totaal aantal COVID19 gevallen terug voor de gegeven leeftijdscategorie en het gegeven geslacht
     B.v.
     determine_total_cases("20-29", "M") geeft het aantal besmettingen van mannen tussen de 20 en 29 jaar oud
     terug. 
     """
-    return 0
+    rows = []
+    f = open("csv_dataset.csv", "r")
+    reader = csv.reader(f, delimiter = ',')
+    for row in reader:
+        rows = rows.append[row]
+    print(rows) 
+        
 
 
 
@@ -30,3 +36,4 @@ def output_total_cases(input_filename, output_filename):
     """
     return 0
 
+determine_total_cases(1-2, "M")
