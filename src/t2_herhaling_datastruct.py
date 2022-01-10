@@ -6,10 +6,22 @@ def maak_videokaart_dict(merk, naam, architectuur, geheugen, busbreedte, diesize
     >>> maak_videokaart_dict("NVIDIA", "RTX 3080", "Ampere", 10, 320, 628, 2020)
     {'merk': 'NVIDIA', 'naam': "RTX 3080", 'architectuur': "Ampere", 'geheugen': 10, 'busbreedte': 320, 'diesize': 628, "jaar": 2020}
     """
+    GPUs = {}
+    GPUs["merk"] = merk
+    GPUs["naam"] = naam
+    GPUs["architectuur"] = architectuur
+    GPUs["geheugen"] = geheugen
+    GPUs["busbreedte"] = busbreedte
+    GPUs["diesize"] = diesize
+    GPUs["jaar"] = jaar
 
+    return GPUs
 
 def tel_videokaarten(lijst_videokaarten):
     """Geef het totaal aantal videokaarten in de lijst van videokaarten terug."""
+    aantal = []
+    aantal = len(lijst_videokaarten)
+    return aantal
 
 
 def tel_videokaarten_per_merk(lijst_videokaarten):
@@ -23,6 +35,14 @@ def tel_videokaarten_per_merk(lijst_videokaarten):
     Met x het aantal AMD videokaarten in de lijst en y het aantal NVIDIA
     videokaarten in de lijst.
     """
+    Merk = {"NVIDIA": 0, "AMD": 0}
+    for i in lijst_videokaarten:
+        if i["merk"] == "NVIDIA":
+            Merk["NVIDIA"]+=1
+        if [i["merk"] == "AMD":
+            Merk["AMD"]+=1
+    return Merk
+
 
 
 def grootste_videokaart(lijst_videokaarten):
