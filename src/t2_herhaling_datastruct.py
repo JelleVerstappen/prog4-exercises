@@ -39,7 +39,7 @@ def tel_videokaarten_per_merk(lijst_videokaarten):
     for i in lijst_videokaarten:
         if i["merk"] == "NVIDIA":
             Merk["NVIDIA"]+=1
-        if [i["merk"] == "AMD":
+        if i["merk"] == "AMD":
             Merk["AMD"]+=1
     return Merk
 
@@ -53,6 +53,9 @@ def grootste_videokaart(lijst_videokaarten):
     >>> grootste_videokaart([{'naam': 'RTX 3080', 'diesize': 628}])
     RTX 3080
     """
+    biggest_die = max([GPU['diesize'] for GPU in lijst_videokaarten])
+    data_biggest_die = [GPU for GPU in lijst_videokaarten if GPU["diesize"] == biggest_die]
+    return data_biggest_die[0]["naam"]
 
 
 def grootste_videokaartgrootte_per_merk(lijst_videokaarten):
@@ -63,6 +66,17 @@ def grootste_videokaartgrootte_per_merk(lijst_videokaarten):
     >>> grootste_videokaartgrootte_per_merk([{'naam': 'RTX 3080', 'diesize': 628}])
     {'AMD': 0, 'NVIDIA': 628}
     """
+    die_per_merk = {"NVIDIA": 0, "AMD": 0}
+
+    for GPU in lijst_videokaarten:
+        if GPU["merk"] == "NVIDIA":
+            if GPU["diesize"] > die_per_merk["NVIDIA"]:
+                die_per_merk["NVIDIA"] = GPU["diesize"]
+            
+        if GPU["merk"] == "AMD":
+            if GPU["diesize"] > die_per_merk["AMD"]:
+                die_per_merk["AMD"] = GPU["diesize"]
+    return die_per_merk
 
 
 def diesizes_videokaarten(lijst_videokaarten):
@@ -73,6 +87,12 @@ def diesizes_videokaarten(lijst_videokaarten):
     >>> diesizes_videokaarten([{"diesize": 500}, {"diesize": 300}])
     [421, 320]
     """
+    dies = []
+    for GPU in lijst_videokaarten:
+        die = GPU["diesize"]
+        dies.append(die)
+    return dies
+
 
 
 def gemiddelde_diesize_videokaarten(lijst_videokaarten):
@@ -83,6 +103,11 @@ def gemiddelde_diesize_videokaarten(lijst_videokaarten):
     >>> diesizes_videokaarten([{"diesize": 500}, {"diesize": 300}])
     400
     """
+    die_som = 0
+    for GPU in lijst_videokaarten:
+        die_som += GPU["diesize"]
+        die_avg = die_som/len(lijst_videokaarten)
+    return die_avg
 
 
 def jaren_videokaarten(lijst_videokaarten):
@@ -93,6 +118,10 @@ def jaren_videokaarten(lijst_videokaarten):
     >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
     [2020, 2020]
     """
+    jaartallen = []
+    for GPU in lijst_videokaarten:
+        jaartallen.append(GPU["jaar"])
+    return jaartallen
 
 
 def videokaarten_voor_jaar(lijst_videokaarten, jaar):
@@ -104,3 +133,8 @@ def videokaarten_voor_jaar(lijst_videokaarten, jaar):
     >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
     [{"jaar": 2020, "diesize": 500}]
     """
+    GPU_jaar = []
+    for GPU in lijst_videokaarten:
+        if jaar == GPU["jaar"]:
+            GPU_jaar.append(GPU)
+    return GPU_jaar
