@@ -4,7 +4,7 @@ def maak_videokaart_dict(merk, naam, architectuur, geheugen, busbreedte, diesize
 
     Bijvoorbeeld:
     >>> maak_videokaart_dict("NVIDIA", "RTX 3080", "Ampere", 10, 320, 628, 2020)
-    {'merk': 'NVIDIA', 'naam': "RTX 3080", 'architectuur': "Ampere", 'geheugen': 10, 'busbreedte': 320, 'diesize': 628, "jaar": 2020}
+    {'merk': 'NVIDIA', 'naam': 'RTX 3080', 'architectuur': 'Ampere', 'geheugen': 10, 'busbreedte': 320, 'diesize': 628, 'jaar': 2020}
     """
     GPUs = {}
     GPUs["merk"] = merk
@@ -51,7 +51,7 @@ def grootste_videokaart(lijst_videokaarten):
 
     Bijvoorbeeld:
     >>> grootste_videokaart([{'naam': 'RTX 3080', 'diesize': 628}])
-    RTX 3080
+    'RTX 3080'
     """
     biggest_die = max([GPU['diesize'] for GPU in lijst_videokaarten])
     data_biggest_die = [GPU for GPU in lijst_videokaarten if GPU["diesize"] == biggest_die]
@@ -63,7 +63,7 @@ def grootste_videokaartgrootte_per_merk(lijst_videokaarten):
     voor ieder merk de omvang van de grootste kaart.
 
     Bijvoorbeeld:
-    >>> grootste_videokaartgrootte_per_merk([{'naam': 'RTX 3080', 'diesize': 628}])
+    >>> grootste_videokaartgrootte_per_merk([{'merk': 'NVIDIA', 'naam': 'RTX 3080', 'diesize': 628}])
     {'AMD': 0, 'NVIDIA': 628}
     """
     die_per_merk = {"NVIDIA": 0, "AMD": 0}
@@ -85,7 +85,7 @@ def diesizes_videokaarten(lijst_videokaarten):
 
     Bijvoorbeeld:
     >>> diesizes_videokaarten([{"diesize": 500}, {"diesize": 300}])
-    [421, 320]
+    [500, 300]
     """
     dies = []
     for GPU in lijst_videokaarten:
@@ -100,8 +100,8 @@ def gemiddelde_diesize_videokaarten(lijst_videokaarten):
     geef je de gemiddelde diesize terug.
 
     Bijvoorbeeld:
-    >>> diesizes_videokaarten([{"diesize": 500}, {"diesize": 300}])
-    400
+    >>> gemiddelde_diesize_videokaarten([{"diesize": 500}, {"diesize": 300}])
+    400.0
     """
     die_som = 0
     for GPU in lijst_videokaarten:
@@ -115,8 +115,8 @@ def jaren_videokaarten(lijst_videokaarten):
     geef je een lijst van jaartalen terug waarin de videokaarten uitgebracht werden.
 
     Bijvoorbeeld:
-    >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
-    [2020, 2020]
+    >>> jaren_videokaarten([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}])
+    [2020, 2021]
     """
     jaartallen = []
     for GPU in lijst_videokaarten:
@@ -131,7 +131,17 @@ def videokaarten_voor_jaar(lijst_videokaarten, jaar):
 
     Bijvoorbeeld:
     >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
-    [{"jaar": 2020, "diesize": 500}]
+    [{'jaar': 2020, 'diesize': 500}]
+    """
+
+
+def grootste_geheugen_per_jaar(lijst_videokaarten):
+    """Gegeven een lijst van dictionaries met informatie over videokaarten,
+    geef je een dictionary terug met de grootste geheugengrootte per jaar.
+
+    Bijvoorbeeld:
+    >>> grootste_geheugen_per_jaar([{"jaar": 2020, "geheugen": 4}, {"jaar": 2021, "geheugen": 8}])
+    {2020: 4, 2021: 8}
     """
     GPU_jaar = []
     for GPU in lijst_videokaarten:

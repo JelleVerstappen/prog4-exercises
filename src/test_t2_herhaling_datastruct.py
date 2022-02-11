@@ -1,4 +1,5 @@
 from math import exp
+
 import pytest
 
 from .t2_herhaling_datastruct import *
@@ -593,4 +594,61 @@ def test_videokaarten_voor_jaar_3():
             "jaar": 2018,
         },
     ]
+    assert result == expected
+
+
+def test_grootste_geheugen_per_jaar_1():
+    videokaarten = [
+        {
+            "merk": "AMD",
+            "naam": "RX 6800",
+            "architectuur": "RDNA 2",
+            "geheugen": 16,
+            "busbreedte": 256,
+            "diesize": 520,
+            "jaar": 2020,
+        },
+    ]
+    result = grootste_geheugen_per_jaar(videokaarten)
+    expected = {
+        2020: 16,
+    }
+    assert result == expected
+
+
+def test_grootste_geheugen_per_jaar_2():
+    videokaarten = [
+        {
+            "merk": "AMD",
+            "naam": "RX 6800",
+            "architectuur": "RDNA 2",
+            "geheugen": 16,
+            "busbreedte": 256,
+            "diesize": 520,
+            "jaar": 2020,
+        },
+        {
+            "merk": "NVIDIA",
+            "naam": "RTX 3080",
+            "architectuur": "Ampere",
+            "geheugen": 10,
+            "busbreedte": 320,
+            "diesize": 628,
+            "jaar": 2020,
+        },
+        {
+            "merk": "NVIDIA",
+            "naam": "RTX 2080 Ti",
+            "architectuur": "Turing",
+            "geheugen": 11,
+            "busbreedte": 384,
+            "diesize": 754,
+            "jaar": 2018,
+        },
+    ]
+    result = grootste_geheugen_per_jaar(videokaarten)
+    expected = {
+        2018: 11,
+        2020: 16,
+    }
     assert result == expected
